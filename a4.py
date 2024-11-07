@@ -36,6 +36,14 @@ class TTTBoard:
         if self.board[:3] == ps or self.board[3:6] == ps or self.board[6:] == ps:
             return True
         
+        #checks vertical
+        if self.board[::3] == ps or self.board[1::3] == ps or self.board[2::3] == ps:
+            return True
+        
+        #checks diagonal
+        if self.board[::4] == ps or self.board[2:7:2] == ps:
+            return True
+        
 
         def game_over(self) -> bool:
             if self.has_won("X") or self.has_won("O") or "*" not in self.board:
@@ -128,4 +136,4 @@ if __name__ == "__main__":
     print("All tests passed!")
 
     # uncomment to play!
-    # play_tic_tac_toe()
+    play_tic_tac_toe()
